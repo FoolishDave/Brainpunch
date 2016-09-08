@@ -7,8 +7,6 @@ public class Fader : MonoBehaviour {
     private GUITexture fadeImage;
     public float duration;
     public bool sceneStart = true;
-    Color clear = Color.clear;
-    Color black = Color.black;
     private float tFade = -1f;
     private CanvasGroup cGroup = null;
 	// Use this for initialization

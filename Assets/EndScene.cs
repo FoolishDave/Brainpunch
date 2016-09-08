@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class EndScene : MonoBehaviour {
 

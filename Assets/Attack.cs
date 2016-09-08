@@ -81,6 +81,12 @@ public class Attack : MonoBehaviour {
             {
                 Debug.DrawRay(rayPos, dir * 0.75f, Color.green);
                 Debug.Log("hit " + hit.collider.tag);
+
+                Vector2 knockbackDir = hit.transform.position - transform.position;
+                knockbackDir = knockbackDir.normalized;
+
+                hit.transform.GetComponent<Rigidbody2D>().AddForce(knockbackDir*25, ForceMode2D.Impulse);
+                //transform.GetComponent<Rigidbody2D>().AddForce(-knockback.normalized * 25, ForceMode2D.Impulse);
                 if (!enemiesHit.Contains(hit.collider.transform))
                     enemiesHit.Add(hit.collider.transform);
             }
@@ -147,6 +153,8 @@ public class Attack : MonoBehaviour {
             {
                 Camera.main.GetComponent<EndScene>().GameOver(true);
             }
+
+            Camera.main.GetComponent<Effects>().WooshTime();
 
             transform.tag = "Enemy";
             gameObject.layer = 9;
